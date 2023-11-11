@@ -1,6 +1,6 @@
 package com.carrentalsystem.main.model;
 
-import java.time.LocalDateTime;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,13 +14,20 @@ public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int carId;
+	@Override
+	public String toString() {
+		return "Car [carId=" + carId + ", carModel=" + carModel + ", price=" + price + ", mileage=" + mileage
+				+ ", fuelType=" + fuelType + ", seating=" + seating + ", insurance=" + insurance + ", host=" + host
+				+ "]";
+	}
 	private String carModel;
 	private double price;
 	private float mileage;
-	private LocalDateTime duration;
+	
 	private String fuelType;
 	private int seating;
-	private boolean insurance;
+	private String insurance;
+	
 @OneToOne
 private Host host;
 public int getCarId() {
@@ -47,12 +54,7 @@ public float getMileage() {
 public void setMileage(float mileage) {
 	this.mileage = mileage;
 }
-public LocalDateTime getDuration() {
-	return duration;
-}
-public void setDuration(LocalDateTime duration) {
-	this.duration = duration;
-}
+
 public String getFuelType() {
 	return fuelType;
 }
@@ -65,10 +67,10 @@ public int getSeating() {
 public void setSeating(int seating) {
 	this.seating = seating;
 }
-public boolean isInsurance() {
+public String isInsurance() {
 	return insurance;
 }
-public void setInsurance(boolean insurance) {
+public void setInsurance(String insurance) {
 	this.insurance = insurance;
 }
 public Host getHost() {

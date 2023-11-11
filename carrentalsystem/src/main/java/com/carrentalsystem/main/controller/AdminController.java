@@ -22,9 +22,7 @@ public class AdminController {
 	
 	@PostMapping("/admin/post") // api: /vendor/post --DI
 	public Admin postAdmin(@RequestBody Admin admin) { // ur method is mapped to a URL : api
-		/*
-		 * I need vendor info as an object, and I will give it to repository via service
-		 */
+		
 		User user = admin.getUser();
 		String password = user.getPassword();
 		String encodedpassword = passwordEncoder.encode(password);
@@ -36,5 +34,5 @@ public class AdminController {
 		
 		return admin;
 	}
-
+	
 }
