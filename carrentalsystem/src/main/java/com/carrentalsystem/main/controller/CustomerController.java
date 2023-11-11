@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.carrentalsystem.main.exception.InvalidIdException;
@@ -19,6 +20,7 @@ import com.carrentalsystem.main.service.UserService;
 
 
 @RestController
+@RequestMapping("/customer")
 public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
@@ -26,7 +28,7 @@ public class CustomerController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private UserService userService; 
-	@PostMapping("/customer/post")
+	@PostMapping("/post")
 	public Customer postAdmin(@RequestBody Customer customer) { 
     User user = customer.getUser();
 		String password = user.getPassword();

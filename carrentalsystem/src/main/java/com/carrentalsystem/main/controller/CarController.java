@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.carrentalsystem.main.exception.InvalidIdException;
@@ -14,13 +15,14 @@ import com.carrentalsystem.main.service.CarService;
 import com.carrentalsystem.main.service.HostService;
 
 @RestController
+@RequestMapping("/car")
 public class CarController {
 	@Autowired
 	private HostService hostService;
 	@Autowired
 	private CarService carService;
 	
-	@PostMapping("/car/post/{hid}")
+	@PostMapping("/post/{hid}")
 	public ResponseEntity<?> postBook(@RequestBody Car car,@PathVariable("hid") int hid) {
 		try {
 			Host host = hostService.getById(hid);
