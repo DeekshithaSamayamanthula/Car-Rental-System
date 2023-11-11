@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Host {
@@ -13,7 +14,20 @@ public class Host {
 	private String hostEmail;
 	private String hostPass;
 	private String hostName;
-	private int hostContact;
+	private String hostContact;
+	@OneToOne
+	private User user; 
+	@Override
+	public String toString() {
+		return "Host [hostId=" + hostId + ", hostEmail=" + hostEmail + ", hostPass=" + hostPass + ", hostName="
+				+ hostName + ", hostContact=" + hostContact + ", user=" + user + "]";
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getHostId() {
 		return hostId;
 	}
@@ -35,13 +49,14 @@ public class Host {
 	public String getHostName() {
 		return hostName;
 	}
+	
 	public void setHostName(String hostName) {
 		this.hostName = hostName;
 	}
-	public int getHostContact() {
+	public String getHostContact() {
 		return hostContact;
 	}
-	public void setHostContact(int hostContact) {
+	public void setHostContact(String hostContact) {
 		this.hostContact = hostContact;
 	}
 	
