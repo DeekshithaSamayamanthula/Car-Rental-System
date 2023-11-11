@@ -14,9 +14,9 @@ public class Admin {
 	private int adminId;
 	private String adminName;
 	private String email;
-	private int phoneNo;
+	private String phoneNo; 
 @OneToOne
-private User user;
+private User user; 
 public int getAdminId() {
 	return adminId;
 }
@@ -35,10 +35,10 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-public int getPhoneNo() {
+public String getPhoneNo() {
 	return phoneNo;
 }
-public void setPhoneNo(int phoneNo) {
+public void setPhoneNo(String phoneNo) {
 	this.phoneNo = phoneNo;
 }
 public User getUser() {

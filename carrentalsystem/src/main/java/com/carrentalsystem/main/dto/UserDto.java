@@ -4,7 +4,8 @@ public class UserDto {
 	private int userId;
 	private String username;
 	private String emailId;
-	private String pass;
+	private String password;
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -23,10 +24,10 @@ public class UserDto {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	public String getPass() {
-		return pass;
+	public String getPassword() {
+		return password;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

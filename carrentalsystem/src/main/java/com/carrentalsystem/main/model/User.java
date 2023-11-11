@@ -1,18 +1,36 @@
 package com.carrentalsystem.main.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 @Entity
-public class User {
+public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String username;
-	private String emailId;
-	private String pass;
+	
+	private String password;
+	
+	private String role;
+	
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -25,17 +43,44 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getEmailId() {
-		return emailId;
+	
+	public String getPassword() {
+		return password;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getPass() {
-		return pass;
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		SimpleGrantedAuthority sga = new SimpleGrantedAuthority(role);
+		Collection<GrantedAuthority> list =new ArrayList<>();
+		list.add(sga);
+		return list;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", username=" + username + ", password=" + password
+				+ ", role=" + role + "]";
 	}
 	
 }

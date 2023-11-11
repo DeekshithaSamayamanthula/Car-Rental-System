@@ -19,7 +19,19 @@ public class Customer {
 	private String city;
 	private String area;
 	private LocalDate date;
+	private String emailId;
 
+@Override
+	public String toString() {
+		return "Customer [custId=" + custId + ", age=" + age + ", city=" + city + ", area=" + area + ", date=" + date
+				+ ", emailId=" + emailId + ", user=" + user + "]";
+	}
+public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
 @OneToOne
 private User user;
 public int getCustId() {
