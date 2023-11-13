@@ -23,7 +23,7 @@ public class CarController {
 	private CarService carService;
 	
 	@PostMapping("/post/{hid}")
-	public ResponseEntity<?> postBook(@RequestBody Car car,@PathVariable("hid") int hid) {
+	public ResponseEntity<?> postCar(@RequestBody Car car,@PathVariable("hid") int hid) {
 		try {
 			Host host = hostService.getById(hid);
 			car.setHost(host);
@@ -35,9 +35,7 @@ public class CarController {
 				
 		}
 		
-		/*catch (InvalidIdException e) {
-				return ResponseEntity.badRequest().body(e.getMessage());
-			}
-			*/
+		
 	}
+	
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.carrentalsystem.main.exception.InvalidIdException;
+import com.carrentalsystem.main.model.Admin;
 import com.carrentalsystem.main.model.Host;
 import com.carrentalsystem.main.repository.HostRepository;
 
@@ -22,6 +23,17 @@ private HostRepository hostRepository;
 		if(!optional.isPresent())
 			throw new InvalidIdException("Host id Invalid");
 		return optional.get();
+	}
+	public Host getOne(int id) throws InvalidIdException {
+		Optional<Host> optional=hostRepository.findById(id);
+		if(!optional.isPresent()){
+			throw new InvalidIdException("Host ID Invalid");
+		}
+		return optional.get();
+	}
+	public void deleteHost(Host host) {
+		// TODO Auto-generated method stub
+		hostRepository.delete(host);
 	}
 
 }
