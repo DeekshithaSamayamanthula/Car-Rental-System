@@ -25,7 +25,7 @@ public class CustomerService {
 	public Customer getById(int cid) throws InvalidIdException {
 		Optional<Customer> optional=customerRepository.findById(cid);
 		if(!optional.isPresent())
-			throw new InvalidIdException("cid invalid");
+			throw new InvalidIdException("customer id invalid");
 				return optional.get();
 	}
 
