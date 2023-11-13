@@ -3,10 +3,7 @@ package com.carrentalsystem.main.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.DeleteMapping;
->>>>>>> de4590bc370118484e30787760ad23f9c3f2dc48
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
