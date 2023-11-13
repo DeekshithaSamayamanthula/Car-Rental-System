@@ -62,7 +62,7 @@ public class AdminController {
 		return adminService.getAll(pageable);
 	}
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteVendor(@PathVariable("id") int id) throws InvalidIdException {
+	public ResponseEntity<?> deleteAdmin(@PathVariable("id") int id) throws InvalidIdException {
 		
 		//validate id
 		Admin admin = adminService.getOne(id);

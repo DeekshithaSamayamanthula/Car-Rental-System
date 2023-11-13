@@ -3,6 +3,7 @@ package com.carrentalsystem.main.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.carrentalsystem.main.dto.HostDto;
 import com.carrentalsystem.main.exception.InvalidIdException;
+import com.carrentalsystem.main.model.Admin;
 import com.carrentalsystem.main.model.Host;
 import com.carrentalsystem.main.model.User;
 import com.carrentalsystem.main.service.HostService;
@@ -54,4 +56,13 @@ public class HostController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> deleteHost(@PathVariable("id") int id) throws InvalidIdException {
+		
+		//validate id
+		Host host = hostService.getOne(id);
+		//delete
+		hostService.deleteHost(host);
+		return ResponseEntity.ok().body("Host deleted successfully");
 	}
+}
