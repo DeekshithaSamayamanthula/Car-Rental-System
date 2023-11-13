@@ -1,6 +1,7 @@
 package com.carrentalsystem.main.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,9 +9,9 @@ import javax.persistence.OneToOne;
 
 
 @Entity
-public class CustomerCar {
+public class CustomerCar { 
 	@Id
-	private LocalDateTime date;
+	private LocalDate date;
 
 
 @OneToOne
@@ -35,11 +36,11 @@ public void setCar(Car car) {
 	this.car = car;
 }
 
-public LocalDateTime getDate() {
+public LocalDate getDate() {
 	return date;
 }
 
-public void setDate(LocalDateTime date) {
+public void setDate(LocalDate date) {
 	this.date = date;
 }
 
